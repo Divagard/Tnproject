@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee details</title>
+    <style>
+        body{
+            background-color: bisque;
+        }
+        
+    </style>
+</head>
+<body>
+    <center>
+        <h1> EMPLOYEE DETAILS </h1>
+        
+            {% for row in res %}
+               <p> NAME : 
+                    {{ row[0] }} </p>
+
+                    <p> JOB ROLE  :
+                        {{row[2]}} </p>
+
+                </p> EMPLOYEE ID  :
+                    {{row[3]}} </p>
+
+                </p> DIPPO NAME  :
+                    {{row[4]}} </p>
+
+                    <p> EMAIL ID  :   
+                    {{ row[1] }} </p>
+                    
+                
+                </p> PHONE NUMBER  :
+                    {{row[5]}} </p>
+                
+
+                </p> ADDRESS :
+                    {{row[6]}} </p>
+                <P> VILLAGE
+                    {{row[9]}} </P>
+                </P> TALUK :
+                    {{row[8]}} </P>
+                </P> DISTRICT :
+                    {{row[7]}} </P>
+                </P> PIN CODE :
+                {{row[10]}} </P>
+                </tr>
+            {% endfor %}
+    </center>
+    
+</body>
+</html>

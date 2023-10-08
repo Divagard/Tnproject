@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bus Details</title>
+	<script type="text/javascript">
+		function displayData() {
+			var regData = document.getElementById("registration");
+			var availableData = document.getElementById("available");
+			var notAvailableData = document.getElementById("notavailable");
+			var selectedRadio = document.querySelector('input[name="busoption"]:checked').value;
+
+			if (selectedRadio === "registration") {
+				regData.style.display = "block";
+				availableData.style.display = "none";
+				notAvailableData.style.display = "none";
+			} else if (selectedRadio === "available") {
+				regData.style.display = "none";
+				availableData.style.display = "block";
+				notAvailableData.style.display = "none";
+			} else if (selectedRadio === "notavailable") {
+				regData.style.display = "none";
+				availableData.style.display = "none";
+				notAvailableData.style.display = "block";
+			}
+		}
+	</script>
+	<style type="text/css">
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+		td, th {
+			border: 1px solid black;
+			padding: 8px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+  <center>
+  <h1> TAMILNADU STATE TRANSPORT CORPORATION </h1>
+	<h2>Bus Details</h2>
+	<form>
+		<input type="radio" name="busoption" value="registration" onclick="displayData()">Bus Registration<br>
+		<input type="radio" name="busoption" value="available" onclick="displayData()">Bus Available<br>
+		<input type="radio" name="busoption" value="notavailable" onclick="displayData()">Bus Not Available<br>
+	
+	<br>
+	<div id="registration" style="display: none">
+		<h3>Bus Registration Details</h3>
+		<table border="3">
+			<tr>
+				<td> BUS NO : </td>
+        <TD> </TD>
+			</tr>
+			<tr>
+				<TD> BUS NAME :</TD>
+        <td> </td>
+			</tr>
+			<tr>
+			<td> DRIVER NAME : </td>
+      <td></td>
+			</tr>
+      <tr>
+        <td>
+          DRIVER NUMBER :
+        </td>
+        <TD></TD>
+      </tr>
+      <TR>
+        <TD>
+          CONDUCTOR NAME :
+        </TD>
+        <TD> </TD>
+      </TR>
+      <TR>
+        <TD>CONDUCTOR NUMBER</TD>
+        <TD>
+          
+        </TD>
+      </TR>
+		</table>
+	</div>
+	<div id="available" style="display: none">
+		<h3>Available Buses</h3>
+		<table>
+			<tr>
+				<th>Bus No.</th>
+				<th>Driver Name</th>
+				<th>Route</th>
+			</tr>
+			<tr>
+				<td>2345</td>
+				<td>Bob Smith</td>
+				<td>Route 3</td>
+			</tr>
+			<tr>
+				<td>6789</td>
+				<td>Sara Smith</td>
+				<td>Route 4</td>
+			</tr>
+		</table>
+	</div>
+	<div id="notavailable" style="display: none">
+		<h3>Not Available Buses</h3>
+		<table>
+			<tr>
+				<th>Bus No.</th>
+				<th>Driver Name</th>
+				<th>Route</th>
+			</tr>
+			<tr>
+				<td>3456</td 
+        </tr>
+        </table>
+        </div>
+      </form>
+          </center
+</body>
+</html>

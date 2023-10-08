@@ -1,0 +1,94 @@
+/* Styles for the body */
+body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Styles for the header */
+  h1 {
+    font-size: 40px;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* Styles for the radio buttons */
+  input[type="radio"] {
+    display: none;
+  }
+  
+  input[type="radio"] + label {
+    display: inline-block;
+    margin: 10px 20px;
+    padding: 10px 20px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  input[type="radio"] + label:hover {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  input[type="radio"]:checked + label {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  /* Styles for the form */
+  form {
+    background-color: #fff;
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+  }
+  
+  form h2 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  form table {
+    border-collapse: collapse;
+    margin: 20px 0;
+    width: 100%;
+  }
+  
+  form table td {
+    border: 2px solid #333;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  form table td:first-child {
+    font-weight: bold;
+    background-color: #333;
+    color: #fff;
+  }
+  
+  form input[type="text"],
+  form input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  form input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  form input[type="submit"]:hover {
+    background-color: #fff;
+    color: #333;
+  }
+  

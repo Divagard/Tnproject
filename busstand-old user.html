@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> Bus stand site </title>
+	
+
+</head>
+<body>
+	<center>
+		
+		
+		<h1> TAMILNADU STATE TRANSPORT CORPORATION </h1> </center>
+		<img src= "/tnbuses/tnbus1.png" alt="nothing happen1" height="300px " width="300px">
+		<center> <form action="{{url_for('checkvalidate1')}}" method="post">
+			<table border="3">
+				<tr> <td>  USER NAME :  </td>
+				<td> <input type="text" name="us1"> </td>  </tr>
+				<tr> <td>   PASSWORD :  </td>
+				<td> <input type="password" name="pss"> </td> </tr>
+				<tr> <td> </td>
+				<td> <input type="submit" name="submit"> </td> </tr>
+
+				
+			</table>
+			
+		</form>
+		<form action="" method="post">
+			click here for  <a href = "{{url_for('newuser')}}">  New User </a> </h6>
+			
+		</form>
+
+
+
+	</center>
+
+
+</body>
+</html>

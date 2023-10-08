@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bus Fare Registration</title>
+</head>
+<body>
+  <form method="post" action="save_fare.php">
+    <label for="from-input">From:</label>
+    <input type="text" id="from-input" name="from" required>
+    
+    <label for="to-input">To:</label>
+    <input type="text" id="to-input" name="to" required>
+    
+    <label for="fare-input">Fare:</label>
+    <input type="number" id="fare-input" name="fare" required>
+    
+    <button type="submit">Register</button>
+  </form>
+  
+  <h3>Registered Routes:</h3>
+  <ul id="route-list"></ul>
+  
+  <script>
+    function addRoute() {
+      var fromInput = document.getElementById("from-input");
+      var toInput = document.getElementById("to-input");
+      var fareInput = document.getElementById("fare-input");
+      var routeList = document.getElementById("route-list");
+      var from = fromInput.value;
+      var to = toInput.value;
+      var fare = fareInput.value;
+      
+      // Create a new list item for the entered route
+      var listItem = document.createElement("li");
+      listItem.textContent = from + " to " + to + " - Fare: $" + fare;
+      
+      // Append the list item to the route list
+      routeList.appendChild(listItem);
+      
+      // Clear the input fields
+      fromInput.value = "";
+      toInput.value = "";
+      fareInput.value = "";
+    }
+  </script>
+</body>
+</html>

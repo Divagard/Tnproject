@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Details</title>
+	<script type="text/javascript">
+		function displayData() {
+			var regData = document.getElementById("registration");
+			var availableData = document.getElementById("check_status");
+            var alot  = document.getElementById("busallotment");
+            var emreg = document.getElementById("emregistration");
+            var emidd = document.getElementById("emdetail");
+            var bsnoss = document.getElementById("busdetail");
+			var selectedRadio = document.querySelector('input[name="busoption"]:checked').value;
+
+			if (selectedRadio === "registration") {
+				regData.style.display = "block";
+				availableData.style.display = "none";
+                alot.style.display = "none" ;
+                emreg.style.display = "none";
+                emidd.style.display = "none";
+                bsnoss.style.display = "none";
+			} else if (selectedRadio === "check_status") {
+				regData.style.display = "none";
+				availableData.style.display = "block";
+                alot.style.display = "none" ;
+                emreg.style.display = "none";
+                emidd.style.display = "none";
+                bsnoss.style.display = "none";
+			} else if (selectedRadio === "fulldetails") {
+				regData.style.display = "none";
+				availableData.style.display = "none";
+				notAvailableData.style.display = "block";
+                alot.style.display = "none" ;
+                emreg.style.display = "none";
+                emidd.style.display = "none";
+                bsnoss.style.display = "none";
+			} else if (selectedRadio === "busallotment") {
+				regData.style.display = "none";
+				availableData.style.display = "none";
+                alot.style.display = "block" ;
+                emreg.style.display = "none ";
+                emidd.style.display = "none";
+                bsnoss.style.display = "none";
+			} else if (selectedRadio === "emregistration") {
+				regData.style.display = "none";
+				availableData.style.display = "none";
+                alot.style.display = "none" ;
+                emreg.style.display = "block";
+                emidd.style.display = "none";
+                bsnoss.style.display = "none";
+			}
+            else if (selectedRadio === "emdetail") {
+				regData.style.display = "none";
+				availableData.style.display = "none";
+                alot.style.display = "none" ;
+                emreg.style.display = "none";
+                emidd.style.display = "block";
+                bsnoss.style.display = "none";
+			}
+            else if (selectedRadio === "busdetail") {
+				regData.style.display = "none";
+				availableData.style.display = "none";
+                alot.style.display = "none" ;
+                emreg.style.display = "none";
+                emidd.style.display = "none";
+                bsnoss.style.display = "block";
+			}
+		}
+	</script>
+	
+</head>
+<body>
+    <center>
+    <h1> TAMILNADU STATE TRANSPORT CORPORATION </h1>
+	<h2>Bus Details</h2>
+	<form>
+        <div style="border: 3; background-color: aqua; align-self: auto;">
+            <input type="radio" name="busoption" value="emregistration" onclick="displayData()">EMPLOYEE REGISTRATION  
+             <input type="radio" name="busoption" value="registration" onclick="displayData()">BUS REGISTRATION  
+             <input type="radio" name="busoption" value="busallotment" onclick="displayData()">BUS ALLOTMENT 
+         <input type="radio" name='busoption' value="check_status" onclick="displayData()">CHECK BUS STATUS  
+         <input type="radio" name="busoption" value="emdetail" onclick="displayData()"> EMPLOYEE DETAILS  
+         <input type="radio" name="busoption" value="busdetail" onclick="displayData()"> BUS DETAILS 
+        <br>
+        </div>
+        <br>
+        <br>
+       
+        <div id="emregistration" style="display: none;  " >
+        <form action="{{url_for('newregemp')}}" method="post">
+            <h2> NEW EMPLOYEE REGISTRATION </h2>
+            
+                <table border="3" >
+                    <tr>
+        <td>  NAME : </td>
+       <td><input type="text" name="nme"> </td> 
+                </tr>
+       <tr>  <td> EMAIL ID :  </td>
+         <td>  <input type="email" name="emal"> </td>  </tr>
+         <tr>       <td> Job Role  </td>
+            <td><input type="text" name="jbr">  </td>  </tr>
+                <tr>              <td> Id Number : </td>
+                    <td><input type="text" name="idno"> </td>  </tr>
+                    <tr>  <td> Dippo Name :  </td>
+                        <td>  <input type="text" name="dpname"> </td>  </tr>
+            <tr>  <td>  PHONE NUMBER : </td>
+                <td> <input type="text" name="p_no">  </td>  </tr>
+                    <tr>       <td> ADDRESS : </td>
+                        <td><input type="text" name="adrs">  </td>  </tr>
+                            <tr>              <td> DISTRICT : </td>
+                                <td><input type="text" name="dst"> </td>  </tr>
+                                    <tr>      <td>  TALUK  : </td>
+                                        <td> <input type="text" name="tlk">  </td>  </tr>
+                                            <tr>        <td>  VILLAGE : </td>
+                                                <td><input type="text" name="vlg"> </td>  </tr>
+                                                <tr>
+                                                    <td>
+                                                        PIN CODE :
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="pcde">
+                                                    </td>
+                                                </tr>
+                        </table>
+                          <br>
+                            <br>
+                      <input type="submit" name="submit">
+                   
+                          
+                      </form> 
+                    </div>
+   
+        <br>
+        <div id="registration" style="display: none;  "  >
+            <form action="{{url_for('busreg')}}" method="post">
+            <h3>Bus Registration Details</h3>
+            <table border="3">
+                <tr>
+                    <td>
+                        DISTRICT 
+                    </td>
+                    <td>
+                        <select name="dis" id="dist">
+                            <option value="none"> select </option>
+
+                            <option value="Tiruvannamalai"> Tiruvannamalai</option>
+                            <option value="ginji"> ginji s</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        DIPPO NAME :
+                    </td>
+                    <td>
+                        <input type="text" name="dipname">
+                    </td>
+                </tr>
+                <tr>
+                    <td> BUS NO : </td>
+                    <td> <input type="text" name="busno"></td>
+                </tr>
+                <tr>
+                    <TD> BUS NAME :</TD>
+                    <td> <input type="text" name="busname"></td>
+                </tr>
+                <tr>
+                <td> DRIVER NAME : </td>
+                <td> <input type="text" name="busdriname"></td>
+                </tr>
+          <tr>
+            <td>
+              DRIVER NUMBER :
+            </td>
+            <td> <input type="text" name="busdrino"></td>
+          </tr>
+          <TR>
+            <TD>
+              CONDUCTOR NAME :
+            </TD>
+            <td> <input type="text" name="busconname"></td>
+          </TR>
+          <TR>
+            <TD>CONDUCTOR NUMBER</TD>
+            <td> <input type="text" name="busconno"></td>
+          </TR>
+
+          
+            </table> <br>
+            <input type="submit" name="submit" value="Register">
+        </form> 
+        </div>
+        
+        <div id="check_status" style="display: none">
+            <h3>BUS STATUS </h3>
+            <form action="" method="">
+                <label> BUS NUMBER : </label>
+                <input type="text" name="bno"> <br>
+                <br>
+                <br>
+                
+                <input type="submit" name="submit" value="CHECK">
+
+
+            </form>
+        </div>
+
+            <div id="emdetail" style="display: none">
+                <label for="name"> EMPLOYEE ID : </label>
+                <input type="text" name="emid"> <br>
+                <br>
+                <br>
+                <input type="submit" name="submit" value="VIEW">
+
+            </div>
+            <div id="busdetail" style="display: none">
+                <label for="name"> BUS NUMBER : </label>
+                <input type="text" name="bsnos"> <br>
+                <br>
+                <br>
+
+                <input type="submit" name="submit" value="VIEW">
+
+            </div>
+            <div id = "busallotment" style="display: none ;">
+                <form action="" method="">
+                    <label> BUS NUMBER : </label>
+                    <input type="text" name="bno"> <br>
+                    <br>
+                    <br>
+
+                    <input type="submit" name="submit" >
+
+
+                </form>
+            </div>
+
+            
+          </form>
+        </center>
+    
+</body>
+</html>
+
+
+from flask import Flask,render_template,request,url_for,redirect,abort,flash
+import busstanddatabaseconnection as bsd
+import newuserdb as ns
+import time
+from mysql.connector import pooling
+
+app = Flask(__name__)
+app.secret_key = 'my_secret_key'
+
+cnxpool = pooling.MySQLConnectionPool(
+    pool_name="mypool",
+    pool_size=32,
+    host="localhost",
+    user="root",
+    password="",
+    database="btsuserlogin"
+)
+   
+#bsd.cur.execute("use busstand")
+#bsd.cur.execute("create table new(name varchar(20))")
+#print(bsd.cur.execute("show tables"))
+global dbs 
+dbs = ns.db
+global ofs
+ofs = 'newofficeuser'
+
+# Root of the program 
+
+@app.route("/")
+def olduser():
+    return render_template("projectinterface.html")
+
+
+# office - office new user html file call
+
+@app.route("/officenewuser",methods = ['post','get'])
+def officenewuser():
+  #  time.sleep(3)
+    return render_template("officenewuser.html")
+  #  @app.route("/newuserlogin",methods = ['post','get'])
+   # def newuserlogin():
+   #     return render_template("projectinterface.html")
+    
+@app.route("/newuserinuser",methods = ['post','get'])
+def newuserinuser():
+    return render_template("newuserinuser.html")
+
+
+# user - user login after successful registration
+
+@app.route("/userlogin",methods = ['post','get'])
+def userlogin():
+    return render_template("projectinterface.html")
+    
+  # Bus availability  
+
+@app.route("/busavail",methods = ['post','get'])
+def busavail():
+    r = request.form.to_dict()
+    busno = r['bus_no']
+    busname = r['bus_name']
+    rtfrom = r['route_from']
+    rtto = r['route_to']
+    bstime = r['bus_time']
+    return busno
+
+# dummy
+
+@app.route("/newofficeuserentry",methods = ['post','get'])
+def newofficeuserentry():
+    r = request.form.to_dict()
+    distr  = r['dis']
+    dname = r['dpname']
+    name = r['nam']
+    jb = r['jbr']
+    id = r['idno']
+    ads = r['addr']
+    pn = r['pno']
+    ps = r['ps2']
+    pds = r['ps3']
+
+    if ps == pds:
+       # bsd.cur.execute(f"create database {name}")
+        bsd.cur.execute(f"use {dbs}")
+        bsd.cur.execute(f"insert into {ofs}(dist,dpname,name,jbrle,idno,addr,pno,ps1,cps) value(%s,%s,%s,%s,%s,%s,%s,%s,%s)",(distr,dname,name,jb,id,ads,pn,ps,pds))
+        bsd.mydb.commit()
+    else:
+        return render_template("newpassvalidate.html")
+    return render_template("login1.html")
+
+# office user validation 
+@app.route('/officevalidation', methods = ['get','post'])
+def officevalidation():
+    r = request.form.to_dict()
+    usname1 = r['us1']
+    pswd1 = r['ps']
+    
+    def execute_query(usname, pswd):
+    # Get a connection from the pool
+        cnx = cnxpool.get_connection()
+
+    # Get a cursor to interact with the database
+        cursor = cnx.cursor()
+
+    # Define the query to retrieve the user's data
+        cursor.execute(f'use {dbs} ')
+        cursor.execute(f'select name,ps1 from newofficeuser where name = %s && ps1 = %s',(usname,pswd))
+        result = cursor.fetchone()
+
+        if result is not None:
+            return  render_template('busavailall.html') 
+        else:
+            return "check user name and password......................"
+        
+
+    return execute_query(usname1,pswd1)
+
+
+@app.route("/newregemp",methods = ['post','get'])
+def newregemp():
+    return "success............"
+
+
+@app.route("/busreg",methods = ['post','get'])
+def busreg():
+    return "success............"
+    
+
+# user - new user entry get data from newuserinuser.html
+
+@app.route('/newuserentry', methods = ['get','post'])
+def newuserentry():
+    r = request.form.to_dict()
+    uname = r['nme']
+    email = r['emal']
+    pno = r['p_no']
+    addr = r['adrs']
+    dst = r['dst']
+    tlk = r['tlk']
+    vil = r['vlg']
+    pcdee = r['pcde']
+    ps = r['pwd1']
+    cps = r['pwd2']
+    if ps == cps :
+        ns.cur.execute(f'use {dbs} ')
+        ns.cur.execute(f"insert into {dbs}(Name,email_id,pno,addrs,district,taluk,village,pincode,ps1,cps1) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",(uname,email,pno,addr,dst,tlk,vil,pcdee,ps,cps))
+        ns.mydb.commit()
+    else:
+        return render_template("newpassvalidate.html")
+    
+        
+    return render_template('newuserreg.html')
+
+# user - username and password validation and enter into user interface 
+
+@app.route('/uservalidation', methods = ['get','post'])
+def uservalidation():
+    r = request.form.to_dict()
+    usname1 = r['us1']
+    pswd1 = r['ps']
+    def execute_query(usname, pswd):
+    # Get a connection from the pool
+        cnx = cnxpool.get_connection()
+
+    # Get a cursor to interact with the database
+        cursor = cnx.cursor()
+
+    # Define the query to retrieve the user's data
+        cursor.execute(f'use {dbs} ')
+        cursor.execute(f'select Name,ps1 from btsuserlogin where Name = %s && ps1 = %s',(usname,pswd))
+        result = cursor.fetchone()
+
+        if result is not None:
+            return "<h1> LOGIN SUCCESSFULLY..........................</h1>" 
+        else:
+            return "check user name and password......................"
+
+    # Close the cursor and connection
+        cursor.close()
+        cnx.close()
+
+    return execute_query(usname1, pswd1)
+    
+     
+
+    
+
+
+
+
+if __name__ == "__main__":
+    app.run(debug=True)     

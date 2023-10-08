@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUS DETAILS</title>
+</head>
+<body>
+    <center>
+        <h1> COMPLETE  BUS  DETAILS </h1>
+        
+            {% for row in res %}
+               <p> DISTRICT : 
+                    {{ row[0] }} </p>
+                    <p> DIPPO NAME :   
+                    {{ row[1] }} </p>
+                    <p> BUS NUMBER :
+                    {{row[2]}} </p>
+                </p> BUS NAME :
+                    {{row[3]}} </p>
+                </p> DRIVER NAME :
+                    {{row[4]}} </p>
+                    <P> DRIVER ID
+                    {{row[5]}} </P>
+
+                    {% for r in ng %}
+            <p>
+                PHONE NUMBER :
+                {{r[5]}}
+            </p>
+            <p>
+                DISTRICT :
+                {{r[7]}}
+            </p>
+            {% endfor %}
+
+
+                </P> CONDUCTOR NAME :
+                    {{row[6]}} </P>
+                </P> CONDUCTOR ID :
+                    {{row[7]}} </P>
+
+                    {% for r in ns %}
+            <p>
+                PHONE NUMBER :
+                {{r[5]}}
+            </p>
+            <p>
+                DISTRICT :
+                {{r[7]}}
+            </p>
+            {% endfor %}
+                
+            {% endfor %}
+            
+
+
+            
+
+    </center>
+</body>
+</html>

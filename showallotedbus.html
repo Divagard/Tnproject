@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        body{
+            background-color: rgb(176, 199, 178);
+        }
+        h1{
+            color: rgb(170, 76, 81);
+        }
+        sb{
+            text-align: center;
+        }
+        .alt{
+            background-color: rgb(143, 134, 122);
+            color: rgb(231, 247, 15);
+            padding: 10px;
+            height: 30px;
+            width: 300px;
+        }
+        .stbs{
+            background-color: grey;
+            color: rgb(0, 255, 42);
+            text-align: center;
+            padding: 20px;
+            width: 800px;
+        }
+
+
+    </style>
+
+    <script type="text/javascript">
+		function displayData() {
+			var ud = document.getElementById("sb");
+			var dt = document.getElementById("spb");
+			var selectedRadio = document.querySelector('input[name="busoption"]:checked').value;
+
+			if (selectedRadio === "sb") {
+				ud.style.display = "block";
+				dt.style.display = "none";
+    
+			} else if (selectedRadio === "spb") {
+				ud.style.display = "none";
+				dt.style.display = "block";
+               
+			} 
+            
+		}
+	</script>
+</head>
+<body>
+    
+    
+        <center>
+            <h1> <b> TAMILNADU STATE TRANSPORT CORPORATION </b>  </h1>
+            <h1> <b> BUS ALLOTMENT </b>  </h1>
+
+           
+            <div class="alt">
+                <input type="radio" name="busoption" value="sb" onclick="displayData()">STANDARD  BUS  
+                 <input type="radio" name="busoption" value="spb" onclick="displayData()">SPECIAL BUS
+            <br>
+            </div>
+            <br>
+            <br>
+            <div class="stbs"  id="sb" style="display: none;  " >
+                <form action="{{url_for('alotmentdetail')}}" method="post">
+                    <p>
+                        DISTRICT : {{val}}
+                    </p>
+                    <p>
+                        DEPOT NAME : {{val1}}
+                    </p>
+                    <label >BUS NUMBER : 
+
+                        <input type="text" name="bns"> <br> <br><br>
+                    </label>
+                    <label >DRIVER NAME : 
+
+                        <input type="text" name="drn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </label>
+                    
+                    <label >
+                        DRIVER ID : 
+                        <input type="text" name="drid">
+                    </label> <br>
+                    <br>
+                    
+                   
+                    <label > 
+                        CONDUCTOR NAME :
+                        <input type="text" name="crn">&nbsp;&nbsp;&nbsp;
+
+                    </label>
+                    
+                    <label > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CONDUCTOR ID :
+                        <input type="text" name="crid">
+                    </label>
+                    <br>
+        <br>
+        
+                  
+                    
+                    <input type="submit" name="submit" value="Register">
+                           
+               </form> 
+
+               
+                  </div>
+                  <br>
+                  <div id="spb" style="display: none;  "  >
+                    <form action="{{url_for('delete')}}" method="post">
+                        <label > Bus Number </label>
+                    <input type="text" name="bn">
+                    <br>
+                    <br>
+                    
+    
+
+                <input type="submit" name="submit">
+                           
+        </center>
+    
+</body>
+</html>

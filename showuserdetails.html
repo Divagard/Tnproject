@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUS DETAILS</title>
+    <style>
+        body{
+            background-color: rgb(252, 175, 142);
+        }
+        h1{
+            color: rgb(44, 0, 102);
+        }
+        .bsd{
+            background-color: darksalmon;
+            color: blue;
+            width: 500px;
+            text-align: center;
+            padding: 10px;
+            
+            
+        }
+
+    </style>
+</head>
+<body>
+    <center>
+        <h1> <b> TAMILNADU BUS TRANSPORT  MANAGEMENT SYSTEM </b> </h1>
+        <br>
+        <br>
+        <br>
+        <div class="bsd">
+        <h2> USER BUS DETAILS  </h2>
+        <br>
+        
+            {% for row in res %}
+               <p> DISTRICT : 
+                    {{ row[0] }} </p> <br>
+                    <p> BUS NUMBER :
+                    {{row[3]}} </p> <br>
+                </p> BUS NAME :
+                    {{row[4]}} </p>
+                    <br>
+                    <p>
+                        FROM :
+                        {{row[5]}}
+                    </p>
+                    <br>
+                    <p>
+                TO :
+                        {{row[6]}}
+                    </p>
+                    <br>
+                    <p>
+                        BUS EXACT LOCATION :
+                        {{random_string}}
+                    </p>
+
+                
+               
+                
+            {% endfor %}
+
+
+
+        </div>
+            
+
+
+            
+
+    </center>
+</body>
+</html>

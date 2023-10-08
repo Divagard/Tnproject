@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>success Registration</title>
+    <style type="text/css">
+      body{
+        background-color: lightslategray;
+      }
+      h1{
+        color: darkgreen;
+      }
+
+    </style>
+</head>
+<body>
+  <center>
+    <br>
+    <br>
+    <br>
+
+    <h1> <b> BUS ALLOTED SUCCESSFULLY....... </b> </h1>
+    <br>
+    <br>
+    <br>
+    <button id="back-btn">Click to Back</button>  </center>
+
+    <script>
+        // add event listener to button
+document.querySelector('#back-btn').addEventListener('click', function() {
+  // navigate back to previous page
+  window.history.back();
+  
+ // reload the page after a delay
+  setTimeout(function() {
+    window.location.reload(true);
+  }, 500);
+});
+
+
+    </script>
+</body>
+</html>

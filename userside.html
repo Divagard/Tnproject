@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> bus availability site </title>
+	
+</head>
+<body>
+	<center>
+			<h1> TAMILNADU STATE TRANSPORT CORPORATION </h1>
+			<h2> WELCOME {{usn}} </h2>
+	<div style="text-align: center;">
+  <form action="{{url_for('busavail')}}" method="post">
+    <label>
+      <input type="radio" name="bus_status" value="register" onclick="newBusDetails()"> Bus available
+    </label>
+    <br>
+    <label>
+      <input type="radio" name="bus_status" value="available" onclick="showBusDetails()"> Bus available
+    </label>
+    <br>
+    <label>
+      <input type="radio" name="bus_status" value="not_available" onclick="showReason()"> Bus not available
+    </label>
+    <br><br>
+    <table id="newregis" style="display: none;">
+      <tr>
+        <td>Bus number:</td>
+        <td><input type="text" name="bus_no"></td>
+      </tr>
+      <tr>
+        <td>Bus name:</td>
+        <td><input type="text" name="bus_name"></td>
+      </tr>
+      <tr>
+        <td>Route from:</td>
+        <td><input type="text" name="route_from"></td>
+      </tr>
+      <tr>
+        <td>Route to:</td>
+        <td><input type="text" name="route_to"></td>
+      </tr>
+      <tr>
+        <td>Time:</td>
+        <td><input type="text" name="bus_time"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <input type="submit" name="submit">
+        </td>
+      </tr>
+    </table> 
+    
+    <table id="bus_details" style="display: none;">
+      <tr>
+        <td>Bus number:</td>
+        <td><input type="text" name="bus_no"></td>
+      </tr>
+      <tr>
+        <td>Bus name:</td>
+        <td><input type="text" name="bus_name"></td>
+      </tr>
+      <tr>
+        <td>Route from:</td>
+        <td><input type="text" name="route_from"></td>
+      </tr>
+      <tr>
+        <td>Route to:</td>
+        <td><input type="text" name="route_to"></td>
+      </tr>
+      <tr>
+        <td>Time:</td>
+        <td><input type="text" name="bus_time"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <input type="submit" name="submit">
+        </td>
+      </tr>
+    </table> 
+    <table id="bus_not_available" style="display: none;">
+      <tr>
+        <td>Bus number:</td>
+        <td><input type="text" name="bus_no_na"></td>
+      </tr>
+      <tr>
+        <td>Driver name:</td>
+        <td><input type="text" name="driver_name_na"></td>
+      </tr>
+      <tr>
+        <td>Driver license number:</td>
+        <td><input type="text" name="driver_license_number_na"></td>
+      </tr>
+      <tr>
+        <td>Conductor name:</td>
+        <td><input type="text" name="conductor_name_na"></td>
+      </tr>
+      <tr>
+        <td>Conductor license number:</td>
+        <td><input type="text" name="conductor_license_number_na"></td>
+      </tr>
+      <tr>
+        <td>Reason:</td>
+        <td><input type="text" name="reason_not_available"></td>
+      </tr>
+       <tr>
+        <td></td>
+        <td>
+          <input type="submit" name="submit">
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
+
+<script>
+  function newBusDetails() {
+    var busDetails = document.getElementById("newregis");
+    var busNotAvailable = document.getElementById("bus_not_available");
+    if (document.querySelector('input[name="bus_status"]:checked').value === "register") {
+      busDetails.style.display = "table";
+      busNotAvailable.style.display = "none";
+    } else {
+      busDetails.style.display = "none";
+      busNotAvailable.style.display = "table";
+    }
+  }
+  function showBusDetails() {
+    var busDetails = document.getElementById("bus_details");
+    var busNotAvailable = document.getElementById("bus_not_available");
+    if (document.querySelector('input[name="bus_status"]:checked').value === "available") {
+      busDetails.style.display = "table";
+      busNotAvailable.style.display = "none";
+    } else {
+      busDetails.style.display = "none";
+      busNotAvailable.style.display = "table";
+    }
+  }
+  
+  function showReason() {
+    var busDetails = document.getElementById("bus_details");
+    var busNotAvailable = document.getElementById("bus_not_available");
+    if (document.querySelector('input[name="bus_status"]:checked').value === "not_available") {
+      busDetails.style.display = "none";
+      busNotAvailable.style.display = "table";
+    } else {
+      busDetails.style.display = "table";
+      busNotAvailable.style.display = "none";
+    }
+  }
+</script>
+</center>
+
+</body>
+</html>

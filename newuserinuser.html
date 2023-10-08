@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New user in user </title>
+    <style>
+        body{
+            background-color: bisque;
+        }
+        h1{
+            color: chocolate;
+        }
+        h2{
+            color: darkgoldenrod;
+        }
+
+    </style>
+</head>
+<body>
+    <center>
+        <h1> <b> TAMILNADU STATE TRANSPORT CORPORATION </b> </h1>
+        <h2> <b> NEW BUS VIEW  USER REGISTRATION </b> </h2>
+    <form action="{{url_for('newuserentry')}}" method="post">
+        <div>
+            <br>
+            <br>
+            <br>
+    <label>  NAME : </label>
+   <label><input type="text" name='nme'> </label> &nbsp;&nbsp;&nbsp;&nbsp;
+            
+     <label> EMAIL ID :  </label>
+     <label>  <input type="email" name='emal'> </label> &nbsp;&nbsp;&nbsp;&nbsp; 
+          <label>  PHONE NUMBER : </label>
+            <label> <input type="text" name='p_no'>  </label>  &nbsp;&nbsp;&nbsp;&nbsp;
+                       <label> ADDRESS : </label>
+                       
+                    <label><input type="text" name='adrs'>  </label> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <br>
+                    <br>
+                    <br> 
+                                      <label> DISTRICT : </label>
+                            <label><input type="text" name='dst'> </label>  &nbsp;&nbsp;&nbsp;&nbsp;
+                                      <label>  TALUK  : </label>
+                                    <label> <input type="text" name='tlk'>  </label> &nbsp;&nbsp;&nbsp;&nbsp; 
+                                                <label>  VILLAGE : </label>
+                                            <label><input type="text" name='vlg'> </label>  &nbsp;&nbsp;&nbsp;&nbsp;
+                                            
+                                                <label>
+                                                    PIN CODE :
+                                                </label>
+                                                
+                                                <label>
+                                                    <input type="text" name='pcde'> &nbsp;&nbsp;&nbsp;&nbsp;
+                                                </label>
+                                                <br>
+                                                <br>
+                                                <br>
+
+                                            
+                                            
+                                                <label>
+                                                   PASSWORD :
+                                                </label>
+                                                <label>
+                                                    <input type="password" name='pwd1'> &nbsp;&nbsp;&nbsp;&nbsp;
+                                                </label>
+                                            
+                                            
+                                                <label>
+                                                   CONFIRM PASSWORD :
+                                                </label>
+                                                <label>
+                                                    <input type="password" name='pwd2'> &nbsp;&nbsp;&nbsp;&nbsp;
+                                                </label>
+                                            
+                    
+                      <br>
+                        <br>
+                        <br>
+
+                  <input type="submit" name="submit">
+                       </div> 
+                  </form>
+                  <br>
+                  <br>
+                  <button onclick="goBack()"> Go Back  </button>
+    <script>
+        function goBack()
+        {
+            window.history.back();
+        }
+    </script>
+               </center>
+</body>
+</html>

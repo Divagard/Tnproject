@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> BUS USER INTERFACE </title>
+    <style>
+        body{
+            background-color: goldenrod;
+        }
+        h1{
+
+            color: mediumblue;
+        }
+        .uvs{
+            background-color: bisque;
+            color: darkviolet;
+            width: 400px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body> 
+    <center>
+        <br>
+        <br>
+        <br>
+        <h1> <b> TAMILNADU BUS TRANSPORT  MANAGEMENT SYSTEM </b> </h1>
+
+        <div class="uvs">
+            <br>
+            <br>
+    <form action="{{url_for('userview')}}"  method="post">
+        <label > BUS NUMBER :</label>
+        <input type="text" name="bsn"> <br>
+        <br>
+        <br>
+        <input type="submit" name="submit">
+    </div>
+
+    </form>
+</center>
+    
+</body>
+</html>

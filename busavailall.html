@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Details</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+  <!-- <script type="text/javascript" src="path/to/your/js/file.js"></script> -->
+  <style type="text/css">
+    body{
+        background-color: rgb(233, 176, 157);
+
+    }
+    h1{
+        color: rgb(10, 0, 156);
+    }
+    .bsop{
+        background-color: rgb(213, 233, 174);
+        width: 300px;
+        height: 200px;
+        padding: 30px;
+        color: brown;
+        text-align: justify;
+    
+    }
+    label{
+        text-align: left;
+    }
+    #emregistration{
+        /* background-color:antiquewhite ; */
+        padding: 10px;
+        height: 300px;
+    }
+    #registration{
+        /* background-color: antiquewhite; */
+        padding: 10px;
+        height: 300px;
+    }
+    #nbm{
+        color: slateblue;
+        margin: 10px;
+    }
+    #emd{
+        margin: 10px;
+        text-align: justify;
+
+    }
+    #jr{
+        margin: 20px;
+        text-align: justify;
+
+    }
+    #dmi{
+        margin-right: 0px;
+        text-align: justify;
+
+
+    }
+    #dp{
+        margin: 10px;
+        text-align: justify;
+
+    }
+    #pn{
+        margin: 20px;
+        text-align: justify;
+
+
+    }
+    #ad{
+        margin: 30px;
+        text-align: justify;
+
+    }
+    #tk{
+        margin: 10px;
+        text-align: justify;
+
+    }
+    #dt{
+       margin-right: 0px;
+       text-align: justify;
+
+
+    }
+    #pd{
+        margin-right: 0px;
+        text-align: justify;
+
+
+    }
+    #vl{
+
+        margin: 20px;
+        text-align: justify;
+
+    }
+    
+    #dist{
+        margin: 10px;
+        text-align: justify;
+    }
+    #dpn{
+        margin: 20px;
+        text-align: justify;
+
+    }
+    #bn{
+        margin: 30px;
+        text-align: justify;
+
+    }
+    #bs{
+        margin-right: 0px;
+        text-align: justify;
+
+    }
+    #fm{
+        margin: 10px;
+        text-align: justify;
+
+    }
+    #to{
+        margin: 20px;
+        text-align: justify;
+
+    }
+    #drn{
+        margin: 30px;
+        text-align: justify;
+
+    }
+    #dri{
+        margin-right: 0px;
+        text-align: justify;
+
+    }
+    #cnn{
+        margin: 10px;
+        text-align: justify;
+
+    }
+    #cni{
+        margin: 20px;
+        text-align: justify;
+
+    }
+    #check_status{
+        /* background-color: azure; */
+        padding: 10px;
+        
+        
+    }
+    #emdetails{
+        /* background-color: bisque; */
+        padding: 10px;
+    }
+
+
+  </style>
+	<script type="text/javascript">
+		function displayData() {
+			var regData = document.getElementById("registration");
+			var availableData = document.getElementById("check_status");
+            var alot  = document.getElementById("busallotment");
+            var emreg = document.getElementById("emregistration");
+            var emidd = document.getElementById("emdetail");
+            var bsnoss = document.getElementById("busdetail");
+			var selectedRadio = document.querySelector('input[name="busoption"]:checked').value;
+
+			if (selectedRadio === "registration") {
+				regData.style.display = "block";
+				availableData.style.display = "none";
+                alot.style.display = "none" ;
+                emreg.style.display = "none";
+                emidd.style.display = "none";
+                bsnoss.style.display = "none";
+			} else if (selectedRadio === "check_status") {
+				regData.style.display = "none";
+				availableData.style.display = "block";
+                alot.style.display = "none" ;
+                emreg.style.display = "none";
+                emidd.style.display = "none";
+                bsnoss.style.display = "none";
+			} else if (selectedRadio === "fulldetails") {
+				regData.style.display = "none";
+				availableData.style.display = "none";
+				notAvailableData.style.display = "block";
+                alot.style.display = "none" ;
+                emreg.style.display = "none";
+                emidd.style.display = "none";
+                bsnoss.style.display = "none";
+			} else if (selectedRadio === "busallotment") {
+				regData.style.display = "none";
+				availableData.style.display = "none";
+                alot.style.display = "block" ;
+                emreg.style.display = "none ";
+                emidd.style.display = "none";
+                bsnoss.style.display = "none";
+			} else if (selectedRadio === "emregistration") {
+				regData.style.display = "none";
+				availableData.style.display = "none";
+                alot.style.display = "none" ;
+                emreg.style.display = "block";
+                emidd.style.display = "none";
+                bsnoss.style.display = "none";
+			}
+            else if (selectedRadio === "emdetail") {
+				regData.style.display = "none";
+				availableData.style.display = "none";
+                alot.style.display = "none" ;
+                emreg.style.display = "none";
+                emidd.style.display = "block";
+                bsnoss.style.display = "none";
+			}
+            else if (selectedRadio === "busdetail") {
+				regData.style.display = "none";
+				availableData.style.display = "none";
+                alot.style.display = "none" ;
+                emreg.style.display = "none";
+                emidd.style.display = "none";
+                bsnoss.style.display = "block";
+			}
+		}
+	</script>
+	
+</head>
+<body>
+    <center>
+    <h1> <b> TAMILNADU STATE TRANSPORT CORPORATION </b>  </h1>
+	<h1><p style="text-transform: uppercase;"> <b> WELCOME {{usname}} </b> </p> </h1>
+
+	
+        <div class="bsop">
+            <input type="radio" name="busoption" value="registration" onclick="displayData()"> <b> BUS REGISTRATION </b>   <br>
+            <br>
+            <input type="radio" name="busoption" value="emregistration" onclick="displayData()"> <b> EMPLOYEE REGISTRATION  </b> <br>
+            <br>
+             <input type="radio" name="busoption" value="busallotment" onclick="displayData()"><b>  BUS ALLOTMENT  </b> <br>
+             <br>
+         <input type="radio" name='busoption' value="check_status" onclick="displayData()"> <b>
+         CHECK BUS STATUS </b> <br>
+         <br>
+         <input type="radio" name="busoption" value="emdetail" onclick="displayData()"> <b> EMPLOYEE DETAILS </b>  <br>
+         <br>
+         <input type="radio" name="busoption" value="busdetail" onclick="displayData()"><b> BUS DETAILS  </b> <br>
+        <br>
+        </div>
+       
+        <div id="emregistration" style="display: none;  " >
+        <form action="{{url_for('newregemp')}}" method="post">
+            <h2> NEW EMPLOYEE REGISTRATION </h2>
+            
+                
+                    
+        <label id="nbm">   NAME : 
+       <input type="text" name="nme">  </label> 
+               
+       <label id="emd">   EMAIL ID :  
+           <input type="email" name="emal">   </label>
+           <label id="jr">       JOB ROLE : 
+            <input type="text" name="jbr">  </label>  
+            <label id="dmi">           EMP ID : 
+                    <input type="text" name="idno">  </label> <br>
+                    <br>
+                    <br>
+                    <label id="dp"> &nbsp;&nbsp;&nbsp;         DIPPO NAME : 
+                          <input type="text" name="dpname">  </label> 
+                          <label id="pn">      PHONE NUMBER : 
+                 <input type="text" name="p_no">   </label>
+                 <label id="ad">            ADDRESS : 
+                        <input type="text" name="adrs">  </label> 
+                        <label id="dt">                   DISTRICT : 
+                                <input type="text" name="dst">   </label> <br>
+                                <br>
+                                <br>
+                                <label id="tk">               TALUK  : 
+                                         <input type="text" name="tlk">  </label> 
+                                         <label id="vl">                VILLAGE : 
+                                                <input type="text" name="vlg">  </label>
+                                                
+                                                    
+                                                <label id="pd">              PIN CODE :
+                                                    
+                                                    
+                                                        <input type="text" name="pcde"> </label>
+                                                    
+                                               
+                        
+                          <br>
+                            <br>
+                      <input type="submit" name="submit">
+                   
+                          
+                      </form> 
+                    </div>
+   
+        
+        <div id="registration" style="display: none;  "  >
+            <form action="{{url_for('busreg')}}" method="post">
+            <h2> BUS REGISTRATION DETAILS </h2>
+            
+                
+                    
+                     <label id="dt"> DISTRICT : 
+                        <input type="text" name="dist">
+                     </label>
+                    
+               
+                    
+                        <label id="tk" >    TALUK :
+                    
+                    
+                        <input type="text" name="tkl">  </label>
+                        <label id="dpn" >    DEPOT NAME :
+                        <input type="text" name="dpname">  </label>
+                        <label id="bs" >  BUS NO : 
+                        <input type="text" name="busno">  </label>
+                        <br>
+                        <br>
+                        <br>
+               
+                     <label id="bn">  BUS NAME :
+                     <input type="text" name="busname">  </label> 
+                     
+               
+                     <label id="fm">     FROM :
+                     <input type="text" name="busfrom">  </label>
+               
+                     <label id="to" >  TO :
+                          <input type="text" name="busto"> </label>
+                    <label id="bsk"> BUS KILOMETER :
+                        <input type="number" name="bskm" >
+                    </label>
+            <br>
+            <br>
+            <br>
+
+            
+            <label id="bt" >  BUS TYPE :
+            
+             <input type="text" name="btp"> </label>
+          
+            <!-- <label id="cni">  CONDUCTOR ID :
+             <input type="text" name="busconno"> </label> -->
+          
+
+          
+           <br>
+           <br>
+            <input type="submit" name="submit" value="Register">
+        </form> 
+        </div>
+        
+        <div id="check_status" style="display: none">
+            
+            <form action="" method="post">
+                <br>
+                <br>
+                
+                    
+                 <p>  <label > BUS NUMBER :  </label>    
+
+                    
+                    
+                        <input type="text" name="bno"> 
+                        
+
+                    
+                
+                 
+                
+                <input type="submit" name="submit" value="CHECK"> </p> 
+            
+
+
+            </form>
+        </div>
+
+            <div id="emdetail" style="display: none">
+                <form action="{{url_for('empoverview')}}"  method="post">
+                    <br>
+                    <br>
+              <p>  <label for="name"> EMPLOYEE ID : </label>
+                <input type="text" name="emid"> 
+                
+                <input type="submit" name="submit" value="VIEW"> </p>
+            </form>
+
+            </div>
+            <div id="busdetail" style="display: none">
+                <form action="{{url_for('busoverview')}}" method="post">
+                    <br>
+                    <br>
+             <p>    <label for="name"> BUS NUMBER : </label>
+                <input type="text" name="bsnos"> 
+                
+                
+
+                <input type="submit" name="submit" value="VIEW"> </p>
+            </form>
+
+            </div>
+            <div id = "busallotment" style="display: none ;">
+                <form action="{{url_for('alotdetail')}}" method="post">
+                    <br>
+                    <br>
+                <p>    <label> BUS NUMBER : </label>
+                    <input type="text" name="bno"> 
+
+                    <input type="submit" name="submit" > </p>
+                 </form>
+
+                
+            </div>
+
+            
+          
+        </center>
+    
+</body>
+</html>

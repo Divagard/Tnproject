@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>staff reason site </title>
+    <style type="text/css">
+        body{
+            background-color: bisque;
+            width: 100%;
+           
+        }
+        .container{
+            background-color: rgb(196, 160, 42);
+            width: 100%;
+           
+            align-items: center;
+            padding: 10px;
+
+        }
+        h1{
+            color: darkred;
+            
+        }
+        .lgop{
+             width: 100%; 
+            padding: 10px;
+            font-size: 100;
+            color: rgb(255, 0, 200);
+        }
+        .ful{
+            width: 100%;
+            height: 100%;
+            border: 100%;
+            
+        }
+        img{
+            flex-shrink: 0;
+            width: 300px;
+            height: 200px;
+            margin-left: 0%;
+            margin-top: 0%;
+            margin-bottom: 0%;
+            margin-right: 10px;
+        }
+         h2{
+            color: indigo;
+            
+        }
+        .office label{
+            color: saddlebrown;
+        }
+        .user label{
+            color: saddlebrown;
+        }
+        .stf label {
+            color: saddlebrown;
+        }
+        .stf{
+            justify-content: center;
+        }
+        a{
+            color: darkgreen;
+        }
+        p{
+            color: rgb(14, 13, 13);
+        }
+        .cmpview{
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            background-color: gainsboro;
+            color: mediumvioletred;
+            padding: 10px;
+            width: 500px;
+        }
+        input{
+            color: crimson;
+        }
+        .usd{
+            background-color: aquamarine;
+            color: darkviolet;
+            text-align: center;
+            padding: 30px;
+            width: 300px;
+        }
+
+
+    </style>
+    <script type="text/javascript">
+        function view()
+        {
+            var of = document.getElementById("accident")
+            var sf = document.getElementById('breakdown')
+            var us = document.getElementById("common_issue")
+            var ot = document.getElementById("others")
+            var selectedRadio = document.querySelector('input[name = "reason"]:checked').value;
+            if (selectedRadio === 'accident')
+            {
+                of.style.display = "block"
+                sf.style.display = "none"
+                us.style.display = "none"
+                ot.style.display = "none"
+            }
+            else if (selectedRadio === "breakdown")
+            {
+                of.style.display = "none"
+                sf.style.display = "block"
+                us.style.display = "none"
+                ot.style.display = "none"
+            }
+            else if (selectedRadio === 'common_issue')
+            {
+                of.style.display = "none"
+                sf.style.display = "none"
+                us.style.display = "block"
+                ot.style.display = "none"
+            }
+            else if (selectedRadio === 'others')
+            {
+                of.style.display = "none"
+                sf.style.display = "none"
+                us.style.display = "none"
+                ot.style.display = "block"
+            }
+        }
+        </script>
+</head>
+<body>
+    <center>
+        <div class="container">
+            
+            <h1> <b> TAMILNADU BUS TRANSPORT  MANAGEMENT SYSTEM </b> </h1> 
+            <h2 style="text-transform: uppercase;">  {{dn}}</h4>
+            <h2 style="text-transform: uppercase;">  {{ds}}</h4>
+                
+            </div> 
+            <br>
+            <br>
+            <div class="usd">
+             <h2 style="text-transform: uppercase;"><b> WELCOME {{usname}} !!!</b></h2>
+            <h4 style="text-transform: uppercase;"> NAME : {{usname}}  </h4>
+            <h4 style="text-transform: uppercase;"> WORKING STATUS : {{jbs}}</h4>
+            <h4 style="text-transform: uppercase;"> ID NUMBER : {{idn}}</h4>
+         </div>
+         <br>
+         <br>
+
+        <div class="cmpview">
+        <input type="radio" name="reason" value="accident" onclick="view()"> <b> ACCIDENT  </b> <br>
+
+        <input type="radio" name="reason" value="breakdown" onclick="view()"> <b> BREAKDOWN </b> <br>
+        <input type="radio" name="reason" value="common_issue" onclick="view()"> <b> COMMON ISSUE </b> <br>
+        <input type="radio" name="reason" value="others" onclick="view()"> <b> OTHERS </b> <br>
+
+    </div>
+    <div class = "acc" id="accident" style="display: none;">
+        <br>
+        <br>
+        <form action="{{url_for('staffreason')}}" method="post">
+
+            <label > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ENTER THE BUS NUMBER : </label> 
+        <input type="text" name="bsno"> <br> <br>
+        <label >ENTER THE REASON : </label> <br> <br>
+        <label>  <textarea name="accdnt" id="" cols="70" rows="10"></textarea> </label> <br> <br>
+        
+        <input type="submit" name="submit">
+        <br>
+        <br>
+
+    </div> </form> 
+    <div class = "acc" id="breakdown" style="display: none;">
+        <br>
+        <br>
+        <form action="{{url_for('staffreason1')}}" method="post">
+            <label > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ENTER THE BUS NUMBER : </label> 
+        <input type="text" name="bsno"><br> <br>
+        <label >ENTER THE REASON : </label> <br> <br>
+         <label>  <textarea name="brkdn" id="" cols="70" rows="10"></textarea> </label> <br> <br>
+        <input type="submit" name="submit">
+        <br>
+        <br>
+
+    </div> </form> 
+    <div class = "acc" id="common_issue" style="display: none;">
+        <br>
+        <br>
+        <form action="{{url_for('staffreason2')}}" method="post">
+            <label > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ENTER THE BUS NUMBER : </label> 
+        <input type="text" name="bsno"> <br> <br>
+        <label >ENTER THE REASON : </label> <br>
+         <label>  <textarea name="cm_iss" id="" cols="70" rows="10"></textarea> </label> <br> <br>
+        <input type="submit" name="submit">
+        <br>
+        <br>
+
+    </div> </form> 
+    <div class = "ots" id="others" style="display: none;">
+        <br>
+        <br>
+        <form action="{{url_for('staffreason3')}}" method="post">
+        <label > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ENTER THE BUS NUMBER : </label> 
+        <input type="text" name="bsno"> <br> <br>
+        <label >ENTER THE REASON : </label> <br> <br>
+         <label>  <textarea name="others" id="" cols="70" rows="10"></textarea> </label> <br> <br>
+        <input type="submit" name="submit">
+        <br>
+        <br>
+
+    </div> </form> 
+
+
+
+
+    </center>
+    
+</body>
+</html>

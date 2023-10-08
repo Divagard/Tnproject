@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My List</title>
+  </head>
+  <body>
+    <h1>My List</h1>
+    <ul>
+      {% for item in list %}
+      <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+    <form method="post">
+      <label for="item">Enter List Item:</label>
+      <input type="text" id="item" name="item" required>
+      <button type="submit">Add Item</button>
+    </form>
+    {% if message %}
+    <p>{{ message }}</p>
+    {% endif %}
+  </body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> interface of bus tracking system </title>
+    <style type="text/css">
+        body{
+            background-color: bisque;
+            width: 100%;
+           
+        }
+        .container{
+            background-color: rgb(196, 160, 42);
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+
+        }
+        h1{
+            color: darkred;
+            font-size: 300%;
+        }
+        .lgop{
+             width: 100%; 
+            padding: 10px;
+            font-size: 100;
+            color: rgb(255, 0, 200);
+        }
+        .ful{
+            width: 100%;
+            height: 100%;
+            border: 100%;
+            
+        }
+        img{
+            flex-shrink: 0;
+            width: 300px;
+            height: 200px;
+            margin-left: 0%;
+            margin-top: 0%;
+            margin-bottom: 0%;
+            margin-right: 10px;
+        }
+         h2{
+            color: indigo;
+            
+        }
+        .office label{
+            color: saddlebrown;
+        }
+        .user label{
+            color: saddlebrown;
+        }
+        .stf label {
+            color: saddlebrown;
+        }
+        .stf{
+            justify-content: center;
+        }
+        a{
+            color: darkgreen;
+        }
+        p{
+            color: rgb(14, 13, 13);
+        }
+
+
+    </style>
+    <script type="text/javascript">
+        function view()
+        {
+            var of = document.getElementById("office")
+            var sf = document.getElementById('staff')
+            var us = document.getElementById("user")
+            var selectedRadio = document.querySelector('input[name = "login"]:checked').value;
+            if (selectedRadio === 'office')
+            {
+                of.style.display = "block"
+                sf.style.display = "none"
+                us.style.display = "none"
+            }
+            else if (selectedRadio === "staff")
+            {
+                of.style.display = "none"
+                sf.style.display = "block"
+                us.style.display = "none"
+            }
+            else if (selectedRadio === 'user')
+            {
+                of.style.display = "none"
+                sf.style.display = "none"
+                us.style.display = "block"
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <div class="ful" >
+        
+    <center>
+        
+        <div class="container">
+            <img src="{{ url_for('static', filename='/tnbus1.png') }}" alt="Not a found" > 
+            <h1> <b> TAMILNADU BUS TRANSPORT  &nbsp;&nbsp;  MANAGEMENT SYSTEM </b> </h1> 
+            <img src="{{ url_for('static', filename='/tnbus2.jpg') }}" alt="Not found"> 
+         </div> 
+         <br>
+         <br>
+         <!-- {% if mes %}
+        <p>{{ mes }}</p>
+    {% endif %} -->
+        
+        <form action="" method="post">
+            
+
+            <div class="lgop">
+                <input type="radio" name="login" value="office" onclick="view()"><b> OFFICE LOGIN </b> <br>
+                <br>
+                <br>
+                <input type="radio" name="login" value="staff" onclick="view()"><b> STAFF LOGIN </b> <br>
+                <br>
+                <br>
+                
+                <input type="radio" name="login" value="user" onclick="view()"> <b> USER LOGIN </b>
+            </div>
+            <br></form>
+            
+            <div class = "office" id="office" style="display: none;">
+                <h2> WELCOME TO OFFICE LOGIN </h2>
+                <form action="{{url_for('officevalidation')}}" method="post">
+                <label for="name"> <b>USER NAME : </b>  </label>
+                <input type="text" name="us1"> <br>
+                <br>
+                <label for="name"><b> PASSWORD : </b></label>
+                <input type="password" name="ps"> <br>
+                <br>
+                <input type="submit" name="submit">
+                <br>
+                <br>
+             <p> <b>  click here for  <a href = "{{url_for('officenewuser')}}">  New User </a> </b> </p>
+
+            </div> </form> 
+
+            <div class="stf" id="staff" style="display: none;">
+                <h2> WELCOME TO STAFF LOGIN </h2>
+                <form action="{{url_for('staffvalidation')}}" method="post">
+                <label for="name"> <b> &nbsp; &nbsp; &nbsp; &nbsp;    STAFF NAME :</b> </label>
+                <input type="text" name="sfname"> <br>
+                <br>
+
+                <label for="name"><b> PHONE NUMBER :</b> </label>
+                <input type="text" name="pno"> <br> 
+                <br>
+                <input type="submit" name="submit">
+            </form>
+                <br>
+              <!-- <p> <b> click here for  <a href = "{{url_for('newuserinuser')}}">  New User </a> </b> </p> -->
+
+
+
+            </div>
+
+            
+            <div class="user" id="user" style="display: none;">
+                <h2> WELCOME TO USER LOGIN </h2>
+                <form action="{{url_for('uservalidation')}}" method="post">
+                <label for="name"> <b> USER NAME :</b> </label>
+                <input type="text" name="us1"> <br>
+                <br>
+
+                <label for="name"><b> PASSWORD :</b> </label>
+                <input type="password" name="ps"> <br> 
+                <br>
+                <input type="submit" name="submit">
+            </form>
+                <br>
+              <p> <b> click here for  <a href = "{{url_for('newuserinuser')}}">  New User </a> </b> </p>
+
+
+
+            </div>
+        
+    </center>
+</div>
+</body>
+</html>
